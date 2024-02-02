@@ -24,7 +24,7 @@ def send_icmp(host):
     icmp_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     icmp_socket.settimeout(1)
     header = struct.pack('!BBHHH', 8, 0, 0, 111, 1)
-    data = b'Hello, ICMP!' 
+    data = b'test' 
     icmp_checksum = calculate_checksum(header + data)
     header = struct.pack('!BBHHH', 8, 0, icmp_checksum, 111, 1)
     icmp_packet = header + data
